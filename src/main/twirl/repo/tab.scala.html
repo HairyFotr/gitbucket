@@ -19,8 +19,8 @@
   }
   <li@if(active=="files"   ){ class="active"}><a href="@url(repository)/tree/@encodeRefName(id)">Files</a></li>
   <li@if(active=="commits" ){ class="active"}><a href="@url(repository)/commits/@encodeRefName(id)">Commits</a></li>
-  <li@if(active=="branches"){ class="active"}><a href="@url(repository)/branches">Branches@if(repository.branchList.length > 0){ <span class="badge">@repository.branchList.length</span>}</a></li>
-  <li@if(active=="tags"    ){ class="active"}><a href="@url(repository)/tags">Tags@if(repository.tags.length > 0){ <span class="badge">@repository.tags.length</span>}</a></li>
+  <li@if(active=="branches"){ class="active"}><a href="@url(repository)/branches">Branches@if(repository.branchList.nonEmpty){ <span class="badge">@repository.branchList.length</span>}</a></li>
+  <li@if(active=="tags"    ){ class="active"}><a href="@url(repository)/tags">Tags@if(repository.tags.nonEmpty){ <span class="badge">@repository.tags.length</span>}</a></li>
   <li class="pull-right">
     @helper.html.copy("repository-url-copy", repository.url){
       <input type="text" value="@repository.url" id="repository-url" readonly>
